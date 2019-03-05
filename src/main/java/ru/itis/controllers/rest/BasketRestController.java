@@ -24,8 +24,8 @@ public class BasketRestController {
         basketService.addProduct(basketService.findUser(1L), id);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/basket")
-    public ResponseEntity<BasketDto> getUserProducts(User user) {
+    @RequestMapping(method = RequestMethod.GET, value = "/api/basket")
+    public ResponseEntity<BasketDto> getUserProducts() {
 
         return ResponseEntity.ok(basketService.getUserProducts(basketService.findUser(1L)));
     }

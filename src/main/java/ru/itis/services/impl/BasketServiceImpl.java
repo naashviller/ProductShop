@@ -11,8 +11,8 @@ import ru.itis.repositories.ProductRepository;
 import ru.itis.repositories.UserRepository;
 import ru.itis.services.BasketService;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 public class BasketServiceImpl implements BasketService {
@@ -34,38 +34,33 @@ public class BasketServiceImpl implements BasketService {
     public void addProduct(User user, Long productId) {
 
         Product product = productRepository.getOne(productId);
+        Basket basket = user.getBasket();
 
-        if (user.getBasket() == null) {
-            Basket basket = new Basket();
-            user.setBasket(basket);
-            //userRepository.save(user);
-
-/*
-            Basket basket = new Basket().builder()
-
+        if (basket == null) {
+            basket = Basket.builder()
                     .user(user)
-
-                    .products(null)
+                    .products(new HashSet<>())
                     .build();
-*/
 
-            userRepository.save(user);
+            user.setBasket(basket);
+
             basketRepository.save(basket);
         }
 
-        List<Product> products = new ArrayList<>();
-        //products.addAll(user.getBasket().getProducts());
+        Set<Product> products = basket.getProducts();
 
         products.add(product);
-        //user.setBasket((Basket) products);
+        basket.setProducts(products);
+        for (Product p : basket.getProducts()) {
+            System.out.println(p.getName());
+        }
 
-        userRepository.save(user);
+        basketRepository.saveAndFlush(basket);
     }
 
 
     public BasketDto getUserProducts(User user) {
         return BasketDto.from(user.getBasket());
-        //BasketDto.builder(user.getBasket());
     }
 
 }

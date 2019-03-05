@@ -17,7 +17,6 @@ public class User {
     @Column(name = "full_name")
     private String fullName;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "basket_id")
-    private Basket basket;
+    @OneToOne(mappedBy = "user")
+    public Basket basket;
 }

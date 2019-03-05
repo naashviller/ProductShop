@@ -1,5 +1,6 @@
 package ru.itis.dto;
 
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,11 +17,11 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Builder
 public class BasketDto {
-    private List<Product> products;
+    private Set<Product> products;
 
     public static BasketDto from(Basket basket) {
         return BasketDto.builder()
-                .products(basket.getProductList())
+                .products(basket.getProducts())
                 .build();
     }
 
