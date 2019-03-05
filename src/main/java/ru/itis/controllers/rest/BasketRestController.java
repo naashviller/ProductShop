@@ -19,7 +19,7 @@ public class BasketRestController {
     @RequestMapping(method = RequestMethod.POST, value = "/api/add/{id}")
     public void addToBasket(@PathVariable Long id) {
 
-        basketService.addProduct(basketService.findUser(1L), id);
+        basketService.addProduct(1L, id);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/api/basket")

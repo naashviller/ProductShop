@@ -31,18 +31,18 @@ public class BasketServiceImpl implements BasketService {
         return userRepository.getOne(id);
     }
 
-    public void addProduct(User user, Long productId) {
+    public void addProduct(Long userId, Long productId) {
 
         Product product = productRepository.getOne(productId);
-        Basket basket = user.getBasket();
+        Basket basket = userRepository.getOne(userId).getBasket();
 
         if (basket == null) {
             basket = Basket.builder()
-                    .user(user)
+                    .user(userRepository.getOne(userId))
                     .products(new HashSet<>())
                     .build();
 
-            user.setBasket(basket);
+            userRepository.getOne(userId).setBasket(basket);
 
             basketRepository.save(basket);
         }

@@ -7,7 +7,7 @@ public interface BasketService {
 
     User findUser(Long id);
 
-    void addProduct(User user, Long productId);
+    void addProduct(Long userId, Long productId);
 
     BasketDto getUserProducts(User user);
 }
