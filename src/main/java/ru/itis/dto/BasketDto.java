@@ -1,15 +1,14 @@
 package ru.itis.dto;
 
-import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.itis.model.Basket;
 import ru.itis.model.Product;
-import ru.itis.model.User;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Data

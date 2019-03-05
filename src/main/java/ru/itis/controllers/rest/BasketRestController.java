@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import ru.itis.dto.BasketDto;
-import ru.itis.model.User;
 import ru.itis.services.BasketService;
 
 @RestController
@@ -17,7 +16,6 @@ public class BasketRestController {
         this.basketService = basketService;
     }
 
-    //@PostMapping("/add")
     @RequestMapping(method = RequestMethod.POST, value = "/api/add/{id}")
     public void addToBasket(@PathVariable Long id) {
 

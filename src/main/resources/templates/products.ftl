@@ -13,31 +13,31 @@
 <div class="row">
 
     <div class="col-md-4">
-        <#list products as product>
-            <br/>
-            <div class="container">
+    <#list products as product>
+        <br/>
+        <div class="container">
 
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <tr>
-                            <td>${product.name}</td>
-                            <td>${product.cost}</td>
-                            <br/>
-                            <br/>
-                            <td>
-                                <button type="submit" class="btn btn-outline-info" id="${product.id}"
-                                        onclick="addToBasket(this.id)">Добавить в корзину
-                                </button>
-                            </td>
-                            <br/>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <tr>
+                        <td>${product.name}</td>
+                        <td>${product.cost}</td>
+                        <br/>
+                        <br/>
+                        <td>
+                            <button type="submit" class="btn btn-outline-info" id="${product.id}"
+                                    onclick="addToBasket(this.id)">Добавить в корзину
+                            </button>
+                        </td>
+                        <br/>
 
-                        </tr>
+                    </tr>
 
-                    </div>
                 </div>
-                <br/>
             </div>
-        </#list>
+            <br/>
+        </div>
+    </#list>
     </div>
 
 
@@ -47,7 +47,8 @@
             <ul class="list-group list-group-horizontal-sm">
                 <li id="list" class="list-group-item">Корзина</li>
                 <button type="submit" class="btn btn-outline-info"
-                        onclick="getUserProducts()">Показать корзину</button>
+                        onclick="getUserProducts()">Показать корзину
+                </button>
                 <ul id="basketItems">
 
                 </ul>
@@ -56,12 +57,6 @@
     </div>
 
 </div>
-<#--<script>
-    var newLi = document.createElement('li');
-    newLi.innerHTML = 'Привет, мир!';
-    list.appendChild(newLi);
-</script>-->
-
 
 <script type="text/javascript">
     function addToBasket(id) {
@@ -71,7 +66,6 @@
             dataType: "json",
             data: {id: id}
         });
-        //getUserProducts();
     }
 </script>
 <script type="text/javascript">

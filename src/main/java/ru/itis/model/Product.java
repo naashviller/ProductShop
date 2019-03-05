@@ -19,6 +19,5 @@ public class Product {
     @Column(name = "cost")
     private Long cost;
 
-    /*@ManyToMany(mappedBy = "products")
-    private Set<Basket> baskets;*/
+
 }

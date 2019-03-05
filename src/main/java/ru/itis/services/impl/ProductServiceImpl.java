@@ -9,7 +9,7 @@ import ru.itis.services.ProductService;
 import java.util.List;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductRepository repository;
@@ -18,9 +18,6 @@ public class ProductServiceImpl implements ProductService{
     public List<ProductDto> getAllProducts() {
         return ProductDto.from(repository.findAll());
     }
-
-
-
 
 
 }

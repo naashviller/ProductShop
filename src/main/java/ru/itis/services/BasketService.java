@@ -1,7 +1,6 @@
 package ru.itis.services;
 
 import ru.itis.dto.BasketDto;
-import ru.itis.model.Basket;
 import ru.itis.model.User;
 
 public interface BasketService {
