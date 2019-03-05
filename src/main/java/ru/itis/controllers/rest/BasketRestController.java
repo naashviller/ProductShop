@@ -16,7 +16,7 @@ public class BasketRestController {
         this.basketService = basketService;
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/api/add/{id}")
+    @RequestMapping(method = RequestMethod.POST, value = "/api/add")
     public void addToBasket(@PathVariable Long id) {
 
         basketService.addProduct(1L, id);
